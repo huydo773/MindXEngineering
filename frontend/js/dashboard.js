@@ -5,7 +5,9 @@ async function loadUser() {
     });
 
     const data = await res.json();
-    console.log("Dashboard:", data);
+    document.getElementById("userInfo").innerHTML = `
+          <p>Username: ${data.user.username}</p>
+    `;
 }
 
 document.getElementById('logoutBtn').addEventListener('click', async () => {
