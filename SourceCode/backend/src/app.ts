@@ -10,7 +10,8 @@ app.set('trust proxy', 1);
 
 app.use(cors({
     origin: [
-        "https://frontendweb.azurewebsites.net/"
+        "https://frontendweb.azurewebsites.net/",
+        "http://localhost:8080"
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
