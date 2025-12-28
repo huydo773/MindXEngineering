@@ -1,53 +1,46 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import axios from "axios";
 import jwt from "jsonwebtoken";
 
 const router = Router();
 
-const USER = {
-    username: "admin",
-    password: "123456",
-};
+/**
+ * POST /api/auth/openid
+ * body: { code }
+ */
+router.post("/openid", async (req, res) => {
+    const { code } = req.body;
 
-const JWT_SECRET = process.env.JWT_SECRET!;
-
-// ================== LOGIN ==================
-router.post("/login", (req: Request, res: Response) => {
-    const { username, password } = req.body;
-
-    if (username !== USER.username || password !== USER.password) {
-        return res.status(401).json({ message: "Invalid credentials" });
+    if (!code) {
+        return res.status(400).json({ message: "Missing authorization code" });
     }
-
-    const token = jwt.sign(
-        { username },
-        JWT_SECRET,
-        { expiresIn: "1h" }
-    );
-
-    return res.json({ token });
-});
-
-// ================== DASHBOARD (PROTECTED) ==================
-router.get("/dashboard", (req: Request, res: Response) => {
-    const authHeader = req.headers.authorization;
-
-    if (!authHeader) {
-        return res.status(401).json({ message: "Missing token" });
-    }
-
-    const token = authHeader.split(" ")[1];
 
     try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        return res.json({ user: decoded });
-    } catch (err) {
-        return res.status(401).json({ message: "Invalid or expired token" });
-    }
-});
+        const tokenRes = await axios.post(
+            "https://id-dev.mindx.edu.vn/oauth2/token",
+            new URLSearchParams({
+                grant_type: "authorization_code",
+                code,
+                redirect_uri: process.env.OPENID_REDIRECT_URI!,
+                client_id: process.env.OPENID_CLIENT_ID!,
+                client_secret: process.env.OPENID_CLIENT_SECRET!,
+            }),
+            { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+        );
 
-// ================== LOGOUT ==================
-router.post("/logout", (_req: Request, res: Response) => {
-    return res.json({ message: "Logout success (client deletes token)" });
+        const { id_token } = tokenRes.data;
+
+        const appToken = jwt.sign(
+            { id_token },
+            process.env.JWT_SECRET!,
+            { expiresIn: "1h" }
+        );
+
+        res.json({ token: appToken });
+    } catch (err: any) {
+        console.error(err.response?.data || err.message);
+        res.status(401).json({ message: "OpenID authentication failed" });
+    }
 });
 
 export default router;
