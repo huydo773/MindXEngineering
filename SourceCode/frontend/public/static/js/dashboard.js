@@ -1,13 +1,13 @@
 async function loadUser() {
     const token = localStorage.getItem("token");
-    console.log("Token từ localStorage:", token);
+    console.log("Token from localStorage:", token);
 
     if (!token) {
-        window.location.href = "index.html";
+        window.top.location.href = "/";
         return;
     }
 
-    const res = await fetch("https://webappvercel.azurewebsites.net/api/dashboard", {
+    const res = await fetch("/api/dashboard", {
         method: "GET",
         headers: {
             "Authorization": "Bearer " + token
@@ -17,7 +17,7 @@ async function loadUser() {
     if (res.status === 401) {
         alert("Session expired, please login again");
         localStorage.removeItem("token");
-        window.location.href = "index.html";
+        window.top.location.href = "/";
         return;
     }
 
@@ -28,10 +28,10 @@ async function loadUser() {
     `;
 }
 
-document.getElementById('logoutBtn').addEventListener('click', () => {
+document.getElementById("logoutBtn").addEventListener("click", () => {
     localStorage.removeItem("token");
     alert("Logged out");
-    window.location.href = "index.html";
+    window.top.location.href = "/";
 });
 
 loadUser();
