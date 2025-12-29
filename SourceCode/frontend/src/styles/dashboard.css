@@ -1,0 +1,81 @@
+/* full page */
+.dashboard-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* loading */
+.dashboard-loading {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+}
+
+/* card */
+.dashboard-card {
+    background: #ffffff;
+    width: 600px;
+    max-width: 90%;
+    padding: 32px 36px;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* title */
+.dashboard-card h1 {
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+/* subtitle */
+.dashboard-subtitle {
+    color: #4b5563;
+    margin-bottom: 24px;
+}
+
+/* token box */
+.token-box {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.token-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.token-box pre {
+    font-size: 12px;
+    color: #1f2937;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* logout */
+.logout-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ef4444;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: #dc2626;
+}

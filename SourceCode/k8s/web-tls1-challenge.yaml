@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-tls1-challenge
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: quanghuy-07.id.vn
+      http:
+        paths:
+          - path: /.well-known/acme-challenge/
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: challenge-service
+                port:
+                  number: 8080
