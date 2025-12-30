@@ -220,6 +220,11 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
+-Build image and push:
+```
+docker build -t frontend.azurecr.io/web:v1 .
+docker push  frontend.azurecr.io/web:v1 .
+```
 ### 4.3 Kubernetes Manifest & Deploy
 ```frontend-deployment.yaml
 apiVersion: apps/v1
@@ -241,7 +246,7 @@ spec:
         - name: frontend-acr-secret
       containers:
         - name: frontend
-          image: mindxIntern07.azurecr.io/web:v1
+          image: frontend.azurecr.io/web:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 80
