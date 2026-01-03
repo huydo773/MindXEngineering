@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-
+import { trackEvent } from "./utils/analystics";
 import "./styles/callback.css";
 const Callback = () => {
     const called = useRef(false);
@@ -19,6 +19,7 @@ const Callback = () => {
             .then(res => res.json())
             .then(data => {
                 localStorage.setItem("token", data.token);
+                trackEvent("Auth", "Login Success");
                 window.location.href = "/dashboard";
             });
     }, []);

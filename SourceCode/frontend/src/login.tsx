@@ -1,9 +1,9 @@
-
 import "./styles/login.css";
-
+import { trackEvent } from "./utils/analystics";
 
 const Login = () => {
     const handleLogin = () => {
+        trackEvent("Auth", "Login Click");
 
         const params = new URLSearchParams({
             client_id: "mindx-onboarding",
@@ -13,8 +13,10 @@ const Login = () => {
             state: "mindx-login"
         });
 
+
         window.location.href =
             "https://id-dev.mindx.edu.vn/auth?" + params.toString();
+
     };
 
     return (

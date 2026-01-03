@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import "./styles/dashboard.css";
-
+import { trackEvent } from "./utils/analystics";
 
 interface OuterToken {
     id_token: string;
@@ -76,6 +76,7 @@ const Dashboard: React.FC = () => {
     }, [navigate]);
 
     const handleLogout = () => {
+        trackEvent("Auth", "Logout");
         localStorage.removeItem("token");
         navigate("/");
     };
