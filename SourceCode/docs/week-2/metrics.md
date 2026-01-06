@@ -48,14 +48,23 @@ The goal is to help developers and stakeholders monitor system health, performan
 ---
 
 ### 1.3 Alerts Configuration
+-A metric-based alert rule is configured to monitor failed HTTP requests.
+-The alert triggers when the number of failed requests exceeds five within a defined evaluation window.
+-The condition monitors a single time series and has an estimated monthly cost of $0.10.
 
-- Alert on **HTTP 404 spike**
-- Alert on **HTTP 5xx errors**
-- Alert when **average response time exceeds threshold**
-- Alert when **availability check fails**
+#### Testing Server Error (HTTP 500)
 
+To verify the alert configuration for server-side errors, a test endpoint is exposed:
+
+- **Endpoint:** `/api/test-error`
+- **Method:** GET
+- **Behavior:** The endpoint intentionally throws an exception and returns an HTTP 500 response.
 These alerts help detect incidents early and reduce downtime.
 
+### 1.4 Access Permissions
+
+- Azure Application Insights access is granted via Azure RBAC.
+- Users are assigned the **Monitoring Reader** role to view logs, metrics, and alerts.
 ---
 
 ## 2. Product Metrics (Google Analytics – GA4)
@@ -99,6 +108,9 @@ These alerts help detect incidents early and reduce downtime.
 - Used to identify business and UX problems
 
 ---
+
+### 2.3 Access Permissions
+- Google Analytics access is granted at the property level with **Viewer** or **Analyst** permissions.
 
 ## 3. Summary
 
