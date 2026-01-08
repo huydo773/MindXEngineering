@@ -67,6 +67,25 @@ These alerts help detect incidents early and reduce downtime.
 - Users are assigned the **Monitoring Reader** role to view logs, metrics, and alerts.
 ---
 
+### 1.5 Application Insight Report Links And Image (Reference)
+- Application Insights Resource:
+https://portal.azure.com/#@mindx.com.vn/resource/subscriptions/f244cdf7-5150-4b10-b3f2-d4bff23c5f45/resourceGroups/mindx-intern-07-rg/providers/microsoft.insights/components/app-insights-backend/overview
+
+- Application Insights – Performance (Screenshot):
+![Azure Performance](image/Azure-performance.png)
+
+- Application Insights – Logs (Screenshot):
+![Azure Logs](image/Azure-Logs.png)
+
+- Application Insights – Avaibility (Screenshot):
+![Azure Avaibility](image/Azure-Avaibility.png)
+
+- Application Insights – Failure (Screenshot):
+![Azure Avaibility](image/Azure-Failure.png)
+
+- Application Insights – Alert (Screenshot):
+![Azure Alert](image/Azure-Alert.png)
+
 ## 2. Product Metrics (Google Analytics – GA4)
 
 ### 2.1 How to Access Product Metrics
@@ -103,14 +122,27 @@ These alerts help detect incidents early and reduce downtime.
   - Logout
 - Used to analyze user behavior flow
 
-#### Conversion Metrics
-- High event count but low conversion → funnel drop-off
-- Used to identify business and UX problems
-
 ---
 
 ### 2.3 Access Permissions
 - Google Analytics access is granted at the property level with **Viewer** or **Analyst** permissions.
+
+### 2.4 GA4 Report Links And Image (Reference)
+- GA4 Property:  
+https://analytics.google.com/analytics/web/?authuser=0#/a379191558p518235486/reports/reportinghub
+
+- GA4 Overview Report (Screenshot):
+![GA4 Overview Report](image/report-overview.jpg)
+
+- GA4 User Metrics (Screenshot):
+![GA4 User Metrics](image/User-Metrics.jpg)
+
+- GA4 Engagement Metrics (Screenshot):
+![GA4 Engagement Metrics](image/Engagement-Metrics.jpg)
+
+- GA4 Event Metrics (Screenshot):
+![GA4 Event Metrics](image/Event-Metrics.jpg)
+
 
 ## 3. Summary
 
