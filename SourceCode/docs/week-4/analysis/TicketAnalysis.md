@@ -134,13 +134,13 @@ Do hệ thống chưa được cấu hình trường Category chính thức, cá
 - **Timeline:** 3–5 ngày  
 - **Ưu tiên:** Rất cao (impact lớn, cần xử lý sớm)
 
-### 🔍 Ưu tiên xử lý dựa trên Impact (ICE Framework – rút gọn)
+### Ưu tiên xử lý dựa trên Impact (ICE Framework – rút gọn)
 
 | Issue | Impact | Effort | Ưu tiên |
 |------|--------|--------|--------|
-| CRM không gọi được | Cao | Trung bình | ⭐ 1 |
-| Dropout không tạo được | Cao | Trung bình | ⭐ 2 |
-| Ticket Tech Test | Thấp | Thấp | ⭐ 3 |
+| CRM không gọi được | Cao | Trung bình | Rất cao |
+| Dropout không tạo được | Cao | Trung bình | Cao |
+| Ticket Tech Test | Thấp | Thấp | Trung bình |
 
 **Kết luận:**
 > Các issue lặp lại nhiều nhất chủ yếu liên quan đến **chức năng hệ thống cốt lõi (CRM, LMS)** và **quy trình test nội bộ**.  
